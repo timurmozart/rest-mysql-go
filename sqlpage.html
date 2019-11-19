@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Last 5 Results</title>
+    </head>
+    <body>
+        <?php
+            $connect = mysql_connect("localhost","root", "root");
+            if (!$connect) {
+                die(mysql_error());
+            }
+            mysql_select_db("apploymentdevs");
+            $results = mysql_query("SELECT * FROM demo");
+            while($row = mysql_fetch_array($results)) {
+
+                echo $row['Name'] . "</br>";
+
+
+            ?>
+    </body>
+</html>
