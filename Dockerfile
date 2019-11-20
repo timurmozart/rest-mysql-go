@@ -1,22 +1,16 @@
-# Dockerfile References: https://docs.docker.com/engine/reference/builder/
-
-# Start from the latest golang base image
+# 1
 FROM golang:latest
-
-# Add Maintainer Info
-
-WORKDIR /app
-
+# 2
+WORKDIR /rest-mysql-go
+# 3
+COPY . /rest-mysql-go
+# 4
 RUN go get "github.com/go-sql-driver/mysql"
+# 5
 RUN go get "github.com/gorilla/mux"
-RUN git clone https://github.com/timurmozart/rest-mysql-go
-RUN cd rest-mysql-go
-RUN ls
+# 6
 RUN go build .
-
-
-# Expose port 8080 to the outside world
-EXPOSE 8080
-
-# Command to run the executable
-CMD ["/go/rest-mysql-go/rest-mysql-go"]
+# 7
+EXPOSE 8000
+# 8
+CMD ["/rest-mysql-go/rest-mysql-go"]
