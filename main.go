@@ -25,7 +25,7 @@ var err error
 
 func main() {
 
-	db, err = sql.Open("mysql", "root:ASdf456+@tcp(mariadb:3306)/qwer")
+	db, err = sql.Open("mysql", "gogs:gogs_pass@tcp(galera-rs:3306)/gogs")
 	if err != nil {
 		panic(err.Error())
 	}

@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// HomePage
 func HomePage(w http.ResponseWriter, r *http.Request) {
 
 	now := time.Now()              // find the time right now
