@@ -24,8 +24,8 @@ var db *sql.DB
 var err error
 
 func main() {
-
-	db, err = sql.Open("mysql", "gogs:gogs_pass@tcp(galera-rs:3306)/gogs")
+	configureApp()
+	db, err = sql.Open("mysql", config["db_user"]+":"+config["db_pass"]+"@tcp("+config["db_host"]+")/golapka_db_name")
 	if err != nil {
 		panic(err.Error())
 	}
